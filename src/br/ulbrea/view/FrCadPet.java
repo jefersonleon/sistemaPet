@@ -20,6 +20,7 @@ public class FrCadPet extends javax.swing.JFrame {
      */
     public FrCadPet() {
         initComponents();
+        txtId.setText(String.valueOf(x));   
     }
 
     /**
@@ -266,10 +267,19 @@ public class FrCadPet extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
+    public void limpar(){
+        txtId.setText(null);
+        txtNome.setText(null);
+        txtRaca.setText(null);
+        txtAnoNasc.setText(null);
+        rbMacho.setSelected(true);
+    }
+    public static int x = 1;
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
        Pet p = new Pet();
-       p.setId(Integer.parseInt(txtId.getText()));
+       p.setId(x);
+       if(!txtNome.getText().equals("") && !txtRaca.getText().equals("")
+           && !txtAnoNasc.getText().equals("")){
        p.setNome(txtNome.getText());
        p.setRaca(txtRaca.getText());
        if(rbMacho.isSelected()){
@@ -279,8 +289,11 @@ public class FrCadPet extends javax.swing.JFrame {
        }
        p.setAnoNasc(Integer.parseInt(txtAnoNasc.getText()));
        lp.salvar(p);
-        JOptionPane.showMessageDialog(null,lp.listar());
-       
+       x++;
+       }else{ JOptionPane.showMessageDialog(null,"Informe os dados do PET");}
+       limpar();
+       txtId.setText(String.valueOf(x));
+             
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**

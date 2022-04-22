@@ -19,8 +19,7 @@ public class BdPet {
     public String listar() {
         String resposta = "Não há animais cadastrados";
         if (!listaPet.isEmpty()) {
-            resposta = "Lista Geral de Animais\n"
-                    + "  ID       NOME       RAÇA       ANO NASC.      IDADE\n";
+            resposta = "Lista Geral de Animais\n";
             for (int i = 0; i < listaPet.size(); i++) {
                 resposta += listaPet.get(i).toString() + "\n";
             }

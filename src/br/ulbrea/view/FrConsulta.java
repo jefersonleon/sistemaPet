@@ -53,6 +53,7 @@ public class FrConsulta extends javax.swing.JFrame {
         RbFemea = new javax.swing.JRadioButton();
         btAlterar = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
+        txtNomr1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -80,6 +81,7 @@ public class FrConsulta extends javax.swing.JFrame {
         ckTodos.setBackground(new java.awt.Color(255, 102, 0));
         ckTodos.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ckTodos.setForeground(new java.awt.Color(255, 255, 255));
+        ckTodos.setSelected(true);
         ckTodos.setText("TODOS");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -87,6 +89,7 @@ public class FrConsulta extends javax.swing.JFrame {
         jLabel2.setText("ID");
 
         txtId.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        txtId.setEnabled(false);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,9 +127,22 @@ public class FrConsulta extends javax.swing.JFrame {
 
         btAlterar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btAlterar.setText("ALTERAR");
+        btAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAlterarActionPerformed(evt);
+            }
+        });
 
         btExcluir.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btExcluir.setText("EXCLUIR");
+        btExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirActionPerformed(evt);
+            }
+        });
+
+        txtNomr1.setBackground(new java.awt.Color(255, 102, 0));
+        txtNomr1.setForeground(new java.awt.Color(255, 102, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,39 +151,43 @@ public class FrConsulta extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
+                        .addGap(55, 55, 55)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(19, 19, 19)
-                                .addComponent(jLabel4)
-                                .addGap(110, 110, 110)
-                                .addComponent(jLabel5))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btAlterar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btExcluir))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(79, 79, 79)
-                                        .addComponent(txtRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel3)
-                                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(23, 23, 23)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(rbMacho)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(RbFemea))))
+                                            .addComponent(jLabel2)
+                                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(19, 19, 19)
+                                        .addComponent(jLabel4)
+                                        .addGap(110, 110, 110)
+                                        .addComponent(jLabel5))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(14, 14, 14)
-                                        .addComponent(txtAnoNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(btAlterar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btExcluir))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(79, 79, 79)
+                                                .addComponent(txtRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel3)
+                                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(23, 23, 23)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel6)
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addComponent(rbMacho)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(RbFemea))))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(14, 14, 14)
+                                                .addComponent(txtAnoNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(65, 65, 65)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,8 +199,8 @@ public class FrConsulta extends javax.swing.JFrame {
                                 .addComponent(ckTodos))
                             .addComponent(jLabel1)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(21, 21, 21)
+                        .addComponent(txtNomr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(84, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -193,9 +213,11 @@ public class FrConsulta extends javax.swing.JFrame {
                     .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnListar)
                     .addComponent(ckTodos))
-                .addGap(55, 55, 55)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
+                .addComponent(txtNomr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel4)
@@ -214,7 +236,7 @@ public class FrConsulta extends javax.swing.JFrame {
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rbMacho)
                     .addComponent(RbFemea))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btAlterar)
                     .addComponent(btExcluir))
@@ -234,26 +256,74 @@ public class FrConsulta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        if(ckTodos.isSelected()){
+        if (ckTodos.isSelected()) {
             txtListar.setText(lp.listar());
-        }else{
-        int i; Pet p = new Pet();
-        p.setNome(txtPesquisa.getText());
-        i = lp.encontrarPet(p);
-        txtId.setText(String.valueOf(lp.getPet(i).getId()));
-        txtNome.setText(lp.getPet(i).getNome());
-        txtRaca.setText(lp.getPet(i).getRaca());
-        txtAnoNasc.setText(String.valueOf(
-                lp.getPet(i).getAnoNasc()));
-        if(lp.getPet(i).getSexo().equals("Macho")){
-            rbMacho.setSelected(true);
-        }else{
-            RbFemea.setSelected(true);
-        }
+        } else {
+            int i;
+            Pet p = new Pet();
+            if (!txtPesquisa.getText().equals("")) {
+                p.setNome(txtPesquisa.getText());
+                i = lp.encontrarPet(p);
+                if (i != -1) {
+                    txtId.setText(String.valueOf(lp.getPet(i).getId()));
+                    txtNome.setText(lp.getPet(i).getNome());
+                    txtNomr1.setText(lp.getPet(i).getNome());
+                    txtRaca.setText(lp.getPet(i).getRaca());
+                    txtAnoNasc.setText(String.valueOf(
+                            lp.getPet(i).getAnoNasc()));
+                    if (lp.getPet(i).getSexo().equals("Macho")) {
+                        rbMacho.setSelected(true);
+                    } else {
+                        RbFemea.setSelected(true);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Pet Não encontrado!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Informe o nome do PET!");
+            }
         }
     }//GEN-LAST:event_btnListarActionPerformed
+
+    private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
+
+        if (!txtNome.getText().equals("")) {
+            Pet p = new Pet();
+            p.setNome(txtNome.getText());
+            if (lp.encontrarPet(p) != -1) {
+                if (JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir?",
+                        "Excluir", JOptionPane.YES_NO_CANCEL_OPTION) == JOptionPane.YES_OPTION) {
+                    lp.removerPet(lp.encontrarPet(p));
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Seu Pet não foi encontrado!");
+            }
+        }
+    }//GEN-LAST:event_btExcluirActionPerformed
+
+    private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
+        Pet p = new Pet();
+        Pet p1 = new Pet();
+        p1.setNome(txtNomr1.getText());
+        int i = lp.encontrarPet(p1);
+        if (!txtNome.getText().equals("") && !txtRaca.getText().equals("")
+                && !txtAnoNasc.getText().equals("")) {
+            p.setId(Integer.parseInt(txtId.getText()));
+            p.setNome(txtNome.getText());
+            p.setRaca(txtRaca.getText());
+            p.setAnoNasc(Integer.parseInt(txtAnoNasc.getText()));
+            if (rbMacho.isSelected()) {
+                p.setSexo("Macho");
+            } else {
+                p.setSexo("Fêmea");
+            }
+            lp.alterarPet(i, p);
+        } else {
+            JOptionPane.showMessageDialog(null, "Preencha o nome do pet");
+        }
+    }//GEN-LAST:event_btAlterarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -310,6 +380,7 @@ public class FrConsulta extends javax.swing.JFrame {
     private javax.swing.JTextField txtId;
     private javax.swing.JTextArea txtListar;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtNomr1;
     private javax.swing.JTextField txtPesquisa;
     private javax.swing.JTextField txtRaca;
     // End of variables declaration//GEN-END:variables

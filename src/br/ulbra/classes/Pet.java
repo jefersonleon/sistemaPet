@@ -68,7 +68,7 @@ public class Pet {
     @Override
     public String toString() {
        
-  return id+"    -     "+nome+"    -     "+raca+"    -    "+sexo +" - " 
+  return id+" - "+nome+" - "+raca+" - "+sexo +" - " 
           +anoNasc+" - "+(getAnoAtual()-anoNasc);
     }
 }
